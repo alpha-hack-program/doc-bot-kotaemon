@@ -24,9 +24,9 @@ spec:
         - name: createNamespace
           value: "false"
         - name: dataScienceProjectDisplayName
-          value: "kotaemon"
+          value: "${DATA_SCIENCE_PROJECT_NAMESPACE}"
         - name: dataScienceProjectNamespace
-          value: "kotaemon"
+          value: "${DATA_SCIENCE_PROJECT_NAMESPACE}"
   syncPolicy:
     automated:
       # prune: true

@@ -4,7 +4,7 @@ kind: ServiceAccount
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: camel-s3-integration
+  name: kotaemon
   namespace: {{ .Values.dataScienceProjectNamespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -12,7 +12,7 @@ kind: RoleBinding
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: camel-s3-pipeline-runner-dspa
+  name: kotaemon-pipeline-runner-dspa
   namespace: {{ .Values.dataScienceProjectNamespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -20,9 +20,9 @@ roleRef:
   name: pipeline-runner-dspa
 subjects:
 - kind: ServiceAccount
-  name: camel-s3-integration
+  name: kotaemon
 ---
-# This role binding is used to give the pipeline-admin role to the camel-s3-integration service account
+# This role binding is used to give the pipeline-admin role to the kotaemon service account
 # TODO: This needs to be adjusted to give only the necessary permissions!!!
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -33,7 +33,7 @@ metadata:
   namespace: {{ .Values.dataScienceProjectNamespace }}
 subjects:
   - kind: ServiceAccount
-    name: camel-s3-integration
+    name: kotaemon
     namespace: {{ .Values.dataScienceProjectNamespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
