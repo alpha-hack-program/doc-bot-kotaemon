@@ -91,8 +91,8 @@ kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
   annotations:
-    app.openshift.io/vcs-ref: '{{ .Values.cicdApplication.targetRevision }}'
-    app.openshift.io/vcs-uri: '{{ .Values.cicdApplication.repoURL }}'
+    app.openshift.io/vcs-uri: '{{ .Values.vcs.uri }}'
+    app.openshift.io/vcs-ref: '{{ .Values.vcs.ref }}'
   name: kotaemon
   namespace: '{{ .Values.dataScienceProjectNamespace }}'
   labels:

@@ -8,7 +8,7 @@ cat <<EOF | oc apply -f -
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ${DATA_SCIENCE_PROJECT_NAMESPACE}
+  name: ${DATA_SCIENCE_PROJECT_NAMESPACE}-kotaemon
   namespace: openshift-gitops
 spec:
   project: default
@@ -21,6 +21,8 @@ spec:
     targetRevision: main
     helm:
       parameters:
+        - name: createNamespace
+          value: "false"
         - name: dataScienceProjectDisplayName
           value: "kotaemon"
         - name: dataScienceProjectNamespace

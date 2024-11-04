@@ -4,6 +4,8 @@ vcs:
   name: alpha-hack-program/doc-bot-kotaemon
   dir: src
 
+createNamespace: true
+
 pythonVersion: 3.9-ubi8
 
 gitPatSecret: git-pat-bc-secret

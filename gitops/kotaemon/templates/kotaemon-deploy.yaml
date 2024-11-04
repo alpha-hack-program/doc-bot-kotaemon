@@ -72,8 +72,8 @@ metadata:
     app.openshift.io/runtime: python
     app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
   annotations:
-    app.openshift.io/vcs-ref: '{{ .Values.cicdApplication.targetRevision }}'
-    app.openshift.io/vcs-uri: '{{ .Values.cicdApplication.repoURL }}'
+    app.openshift.io/vcs-uri: '{{ .Values.vcs.uri }}'
+    app.openshift.io/vcs-ref: '{{ .Values.vcs.ref }}'
 spec:
   ipFamilies:
     - IPv4

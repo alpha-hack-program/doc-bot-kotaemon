@@ -1,5 +1,5 @@
 ---
-
+{{- if .Values.createNamespace }}
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -13,3 +13,4 @@ metadata:
     kubernetes.io/metadata.name: "{{ .Values.dataScienceProjectNamespace }}"
     modelmesh-enabled: 'true'
     opendatahub.io/dashboard: 'true'
+{{- end }}
