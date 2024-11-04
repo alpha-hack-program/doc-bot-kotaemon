@@ -8,7 +8,7 @@ createNamespace: true
 
 pythonVersion: 3.9-ubi8
 
-gitPatSecret: git-pat-bc-secret
+# gitPatSecret: git-pat-bc-secret
 
 gitSslVerify: true
 modelDeploymentUploadTektonPipelineName: fraud-detection-kfp-upload
