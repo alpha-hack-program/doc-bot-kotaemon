@@ -33,7 +33,7 @@ oracleDsn: 'ABCDEFGHIJKL'
 oracleTableName: 'ABCDEFGHIJKL'
 oracleDistanceStrategy: 'euclidean'
 
-openaiApiBase: https://mistral-7b-predictor-geneva.apps.ocp-ia.jccm.es/v1
+openaiApiBase: https://mistral-7b-predictor-doc-bot.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
 openaiChatModel: /mnt/models/
 openaiEmbeddingsModel: text-embedding-ada-002
 azureOpenaiEndpoint: ''
@@ -47,7 +47,7 @@ graphragEmbeddingModel: text-embedding-3-small
 azureDiEndpoint: ''
 azureDiCredential: ''
 pdfServicesClientId: ''
-milvusHost: http://vectordb-milvus.milvus-standalone.svc.cluster.local
-milvusPort: 8000
+milvusHost: http://vectordb-milvus.milvus.svc.cluster.local
+milvusPort: 19530
 milvusCollectionsFile: llamacollection
 
