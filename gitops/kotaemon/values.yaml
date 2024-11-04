@@ -17,3 +17,35 @@ githubWebhookSecretKey: 'ABCDEFGHIJKL'
 
 dataScienceProjectDisplayName: kotaemon
 dataScienceProjectNamespace: kotaemon
+
+openaiApiKey: 'ABCDEFGHI'
+azureOpenaiApiKey: 'ABCDEFGHI'
+cohereApiKey: 'ABCDEFGHI'
+graphragApiKey: 'ABCDEFGHI'
+pdfServicesClientSecret: 'ABCDEFGHIJKL'
+milvusToken: 'ABCDEFGHIJKL'
+milvusPassword: 'ABCDEFGHIJKL'
+oracleUsername: 'ABCDEFGHIJKL'
+oraclePassword: 'ABCDEFGHIJKL'
+oracleDsn: 'ABCDEFGHIJKL'
+oracleTableName: 'ABCDEFGHIJKL'
+oracleDistanceStrategy: 'euclidean'
+
+openaiApiBase: https://mistral-7b-predictor-geneva.apps.ocp-ia.jccm.es/v1
+openaiChatModel: /mnt/models/
+openaiEmbeddingsModel: text-embedding-ada-002
+azureOpenaiEndpoint: ''
+openaiApiVersion: 2024-02-15-preview
+azureOpenaiChatDeployment: gpt-35-turbo
+azureOpenaiEmbeddingsDeployment: text-embedding-ada-002
+localModel: llama3.1:8b
+localModelEmbeddings: nomic-embed-text
+graphragLlmModel: gpt-4o-mini
+graphragEmbeddingModel: text-embedding-3-small
+azureDiEndpoint: ''
+azureDiCredential: ''
+pdfServicesClientId: ''
+milvusHost: http://vectordb-milvus.milvus-standalone.svc.cluster.local
+milvusPort: 8000
+milvusCollectionsFile: llamacollection
+
