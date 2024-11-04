@@ -15,7 +15,7 @@ metadata:
     app.kubernetes.io/instance: kotaemon
     app.kubernetes.io/name: kotaemon
     app.kubernetes.io/part-of: chatbots
-    app.openshift.io/runtime: quarkus
+    app.openshift.io/runtime: python
     app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
 spec:
   replicas: 1
