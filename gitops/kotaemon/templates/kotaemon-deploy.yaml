@@ -41,7 +41,9 @@ spec:
               protocol: TCP
           envFrom:
             - secretRef:
-                name: kotaemon-creds
+                name: kotaemon-secret
+            - configMapRef:
+                name: kotaemon-config
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
