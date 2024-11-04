@@ -1,0 +1,108 @@
+---
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-uri: '{{ .Values.vcs.uri }}'
+    app.openshift.io/vcs-ref: '{{ .Values.vcs.ref }}'
+    argocd.argoproj.io/sync-wave: "2"
+  name: kotaemon
+  namespace: '{{ .Values.dataScienceProjectNamespace }}'
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'kotaemon:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Containerfile
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: '{{ .Values.vcs.uri }}'
+      ref: '{{ .Values.vcs.ref }}'
+    contextDir: src
+    # If gitPatSecret is defined, use it as the source secret
+    {{- if .Values.gitPatSecret }}
+    sourceSecret:
+      name: {{ .Values.gitPatSecret }}
+    {{- end }}
+  triggers:
+    - type: ConfigChange
+    - type: Generic
+      generic:
+        secretReference:
+          name: kotaemon-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: kotaemon-github-webhook-secret
+  runPolicy: Serial
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: kotaemon-generic-webhook-secret
+  namespace: '{{ .Values.dataScienceProjectNamespace }}'
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+stringData:
+  WebHookSecretKey: {{ .Values.genericWebhookSecretKey }}
+type: Opaque
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: kotaemon-github-webhook-secret
+  namespace: '{{ .Values.dataScienceProjectNamespace }}'
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+stringData:
+  WebHookSecretKey: {{ .Values.githubWebhookSecretKey }}
+type: Opaque
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: '{{ .Values.cicdApplication.targetRevision }}'
+    app.openshift.io/vcs-uri: '{{ .Values.cicdApplication.repoURL }}'
+  name: kotaemon
+  namespace: '{{ .Values.dataScienceProjectNamespace }}'
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+spec:
+  lookupPolicy:
+    local: false

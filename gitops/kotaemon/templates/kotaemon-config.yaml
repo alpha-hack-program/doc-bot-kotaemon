@@ -1,0 +1,31 @@
+# This file contains the configuration that is used by the kotaemon application
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: kotaemon-config
+  namespace: '{{ .Values.dataScienceProjectNamespace }}'
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+data:
+  APP_ENV: production
+  OPENAI_API_BASE: https://mistral-7b-predictor-geneva.apps.ocp-ia.jccm.es/v1
+  OPENAI_CHAT_MODEL: /mnt/models/
+  OPENAI_EMBEDDINGS_MODEL: text-embedding-ada-002
+  AZURE_OPENAI_ENDPOINT: ""
+  OPENAI_API_VERSION: 2024-02-15-preview
+  AZURE_OPENAI_CHAT_DEPLOYMENT: gpt-35-turbo
+  AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT: text-embedding-ada-002
+  LOCAL_MODEL: llama3.1:8b
+  LOCAL_MODEL_EMBEDDINGS: nomic-embed-text
+  GRAPHRAG_LLM_MODEL: gpt-4o-mini
+  GRAPHRAG_EMBEDDING_MODEL: text-embedding-3-small
+  AZURE_DI_ENDPOINT: ""
+  AZURE_DI_CREDENTIAL: ""
+  PDF_SERVICES_CLIENT_ID: ""
+  MILVUS_HOST: http://vectordb-milvus.milvus-standalone.svc.cluster.local
+  MILVUS_PORT: 8000
+  MILVUS_COLLECTIONS_FILE: llamacollection

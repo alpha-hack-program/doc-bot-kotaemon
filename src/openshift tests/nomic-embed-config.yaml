@@ -1,0 +1,73 @@
+apiVersion: serving.knative.dev/v1
+kind: Configuration
+metadata:
+  name: nomic-embed-predictor
+  namespace: geneva
+  annotations:
+    serving.knative.openshift.io/enablePassthrough: 'true'
+    serving.knative.dev/routes: nomic-embed-predictor
+  labels:
+    app.kubernetes.io/instance: nomic-embed
+    component: embedding
+    opendatahub.io/dashboard: 'true'
+spec:
+  template:
+    metadata:
+      annotations:
+        internal.serving.kserve.io/storage-initializer-sourceuri: '<scheme-placeholder>://nomicai/Nomic-Embed-Model'
+        autoscaling.knative.dev/max-scale: '3'  # Increase max scale to handle more traffic
+        autoscaling.knative.dev/min-scale: '1'  # Minimum scale ensures there’s always one replica
+        sidecar.istio.io/inject: 'true'
+        sidecar.istio.io/rewriteAppHTTPProbers: 'true'
+        autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
+        openshift.io/display-name: Nomic Embedding Service
+        argocd.argoproj.io/sync-wave: '2'
+      labels:
+        app.kubernetes.io/instance: nomic-embed
+        component: embedding
+        opendatahub.io/dashboard: 'true'
+    spec:
+      containerConcurrency: 2  # Limit concurrency to balance GPU usage efficiently
+      containers:
+        - name: nomic-container
+          image: docker.io/nomicai/nomic-embedding:latest  # Replace with your registry and version
+          args:
+            - '--model'
+            - /mnt/models/
+            - '--port'
+            - '8080'
+            - '--max-embedding-dim'
+            - '768'  # Example parameter for embedding model
+          ports:
+            - containerPort: 8080
+              name: http1
+              protocol: TCP
+          readinessProbe:
+            successThreshold: 1
+            tcpSocket:
+              port: 8080  # Ensure the port matches the container
+          resources:
+            limits:
+              cpu: '4'
+              memory: 16Gi
+              nvidia.com/gpu: '1'
+            requests:
+              cpu: '2'
+              memory: 16Gi
+              nvidia.com/gpu: '1'
+          volumeMounts:
+            - mountPath: /dev/shm
+              name: shm
+      enableServiceLinks: false
+      nodeSelector:
+        nvidia.com/gpu.product: Tesla-T4-SHARED
+      timeoutSeconds: 300
+      tolerations:
+        - effect: NoSchedule
+          key: nvidia.com/gpu
+          operator: Exists
+      volumes:
+        - emptyDir:
+            medium: Memory
+            sizeLimit: 2Gi
+          name: shm

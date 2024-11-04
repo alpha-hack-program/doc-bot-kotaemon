@@ -1,0 +1,22 @@
+vcs:
+  uri: https://github.com/alpha-hack-program/doc-bot-kotaemon.git
+  ref: main
+  name: alpha-hack-program/doc-bot-kotaemon
+  dir: src
+
+pythonVersion: 3.9-ubi8
+
+gitPatSecret: git-pat-bc-secret
+
+gitSslVerify: true
+modelDeploymentUploadTektonPipelineName: fraud-detection-kfp-upload
+sourceWorkspaceSize: 2Gi
+
+genericWebhookSecretKey: 'ABCDEFGHIJKL'
+githubWebhookSecretKey: 'ABCDEFGHIJKL'
+
+dataScienceProjectDisplayName: kotaemon
+dataScienceProjectNamespace: kotaemon
+
+setup:
+  image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest

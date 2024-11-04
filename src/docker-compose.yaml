@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lite
+    container_name: app-container
+    environment:
+      - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7860
+    volumes:
+      - ./certificates/cacert.pem:/usr/local/share/ca-certificates/cacert.pem:ro
+      - ./certificates/cacert.pem:/usr/share/ca-certificates/cacert.pem:ro
+    ports:
+      - "7860:7860"
+    command: ["python", "app.py"]

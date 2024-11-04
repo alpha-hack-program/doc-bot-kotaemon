@@ -1,0 +1,116 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    app.openshift.io/vcs-uri: '{{ .Values.vcs.uri }}'
+    app.openshift.io/vcs-ref: '{{ .Values.vcs.ref }}'
+  name: kotaemon
+  namespace: {{ .Values.dataScienceProjectNamespace }}
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: quarkus
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kotaemon
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kotaemon
+        deployment: kotaemon
+    spec:
+      serviceAccountName: kotaemon
+      containers:
+        - name: kotaemon
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/{{ .Values.dataScienceProjectNamespace }}/kotaemon:latest
+          ports:
+            - name: http
+              containerPort: 7860
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: kotaemon-creds
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: kotaemon
+  namespace: {{ .Values.dataScienceProjectNamespace }}
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+  annotations:
+    app.openshift.io/vcs-ref: '{{ .Values.cicdApplication.targetRevision }}'
+    app.openshift.io/vcs-uri: '{{ .Values.cicdApplication.repoURL }}'
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 7860-tcp
+      protocol: TCP
+      port: 7860
+      targetPort: 7860
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: kotaemon
+    deployment: kotaemon
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: kotaemon
+  namespace: {{ .Values.dataScienceProjectNamespace }}
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: {{ .Values.pythonVersion }}
+spec:
+  to:
+    kind: Service
+    name: kotaemon
+    weight: 100
+  port:
+    targetPort: 7860-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

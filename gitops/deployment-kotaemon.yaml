@@ -1,0 +1,132 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotaemon
+  namespace: geneva
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kotaemon
+  template:
+    metadata:
+      labels:
+        app: kotaemon
+    spec:
+      containers:
+        - name: kotaemon
+          image: 'image-registry.openshift-image-registry.svc:5000/geneva/kotaemon:latest'
+          ports:
+            - name: http  # Adding a name to the port
+              containerPort: 7860
+              protocol: TCP
+          env:
+            - name: APP_ENV
+              value: production
+            # Reference secrets for sensitive values
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: OPENAI_API_KEY
+            - name: AZURE_OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: AZURE_OPENAI_API_KEY
+            - name: COHERE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: COHERE_API_KEY
+            - name: GRAPHRAG_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: GRAPHRAG_API_KEY
+            - name: PDF_SERVICES_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: PDF_SERVICES_CLIENT_SECRET
+            - name: MILVUS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: MILVUS_TOKEN
+            - name: MILVUS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: MILVUS_PASSWORD
+            # oracle db
+            - name: ORACLE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: ORACLE_USERNAME
+            - name: ORACLE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: ORACLE_PASSWORD
+            - name: ORACLE_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: ORACLE_DSN
+            - name: ORACLE_TABLE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: ORACLE_TABLE_NAME
+            - name: ORACLE_DISTANCE_STRATEGY
+              valueFrom:
+                secretKeyRef:
+                  name: kotaemon-secrets
+                  key: ORACLE_DISTANCE_STRATEGY
+            # Non-sensitive environment variables
+            - name: OPENAI_API_BASE
+              value: https://mistral-7b-predictor-geneva.apps.ocp-ia.jccm.es/v1
+            - name: OPENAI_CHAT_MODEL
+              value: /mnt/models/
+            - name: OPENAI_EMBEDDINGS_MODEL
+              value: text-embedding-ada-002
+            - name: AZURE_OPENAI_ENDPOINT
+              value: ""
+            - name: OPENAI_API_VERSION
+              value: 2024-02-15-preview
+            - name: AZURE_OPENAI_CHAT_DEPLOYMENT
+              value: gpt-35-turbo
+            - name: AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT
+              value: text-embedding-ada-002
+            - name: LOCAL_MODEL
+              value: llama3.1:8b
+            - name: LOCAL_MODEL_EMBEDDINGS
+              value: nomic-embed-text
+            - name: GRAPHRAG_LLM_MODEL
+              value: gpt-4o-mini
+            - name: GRAPHRAG_EMBEDDING_MODEL
+              value: text-embedding-3-small
+            - name: AZURE_DI_ENDPOINT
+              value: ""
+            - name: AZURE_DI_CREDENTIAL
+              value: ""
+            - name: PDF_SERVICES_CLIENT_ID
+              value: ""
+            - name: PDFJS_VERSION_DIST
+              value: "pdfjs-4.0.379-dist"
+            - name: MILVUS_HOST
+              #value: "./milvus.db"
+              value: "http://vectordb-milvus.milvus-standalone.svc.cluster.local"
+            - name: MILVUS_PORT
+              #value: "19530"
+              value: "8000"
+              
+            - name: MILVUS_COLLECTIONS_FILE
+              value: "llamacollection"
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%

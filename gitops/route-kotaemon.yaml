@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: kotaemon-service
+  namespace: geneva
+spec:
+  host: kotaemon-service-geneva.apps.ocp-ia.jccm.es  # Use the correct subdomain
+  to:
+    kind: Service
+    name: kotaemon-service  # Ensure this matches your service name
+  port:
+    targetPort: http  # Matches the named port in your service; typically "http" if added
+  tls:
+    termination: edge  # Router will terminate SSL/TLS
+    insecureEdgeTerminationPolicy: Redirect  # Redirect HTTP to HTTPS 

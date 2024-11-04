@@ -1,0 +1,153 @@
+
+
+
+POSIBLES PREGUNTAS PARA TODOS LOS DOCUMENTOS - proporcionadas por los funcionales
+
+
+A.	Sobre el promotor
+
+¿Quién es el promotor? ¿Nombre y apellidos del promotor? ¿Denominación social del promotor?
+
+¿Cuál es la dirección del promotor, domicilio social?
+
+
+B.	Sobre la ubicación
+
+¿Cuál es su situación? ¿Cuál es su ubicación? ¿En qué parcela, polígono, término municipal y provincia se encuentra?
+
+¿Qué coordenadas son? ¿Qué coordenadas UTM son?
+
+¿Qué distancias hay hasta las poblaciones más cercanas?
+
+¿Cómo se accede al proyecto?
+
+¿Necesita un camino de acceso, un vial de acceso?
+
+
+C.	Sobre las alternativas
+
+¿Propone alternativas de ubicación?
+
+¿Compara las alternativas de ubicación propuestas?
+
+
+D.	Sobre el grupo y epígrafe de la Ley 2/2020
+
+¿En qué grupo y epígrafe de la Ley 2/2020, de su anexo I y anexo II se sitúa el proyecto?
+
+¿Requiere evaluación de impacto ambiental simplificada?
+
+¿Requiere evaluación de impacto ambiental ordinaria?
+
+
+E.	Autorización ambiental integrada
+
+¿La actividad requiere autorización ambiental integrada?
+
+¿En qué epígrafe de la Ley de prevención y control integrados de la contaminación se incluye el proyecto? 
+
+¿En qué epígrafe del Real Decreto Legislativo 1/2016 de 16 de diciembre, por el que se aprueba el texto refundido de la Ley de prevención y control integrados de la contaminación se incluye el proyecto? 
+
+
+F.	Sobre la actividad
+
+¿En qué consiste la actividad? ¿Cuál es la descripción del proyecto?
+
+¿Qué instalaciones forman el proyecto? ¿Qué partes se diferencian en el proyecto?
+
+¿Cuánta superficie ocupa el proyecto?
+
+
+G.	Consumos y necesidades
+
+¿Cuánta agua necesita? ¿Qué abastecimiento de agua requiere?
+
+¿Para qué necesita el agua?
+
+¿De dónde va a tomar el agua que necesita?
+
+¿Qué necesidades de saneamiento o depuración de aguas tiene? ¿Qué depuradora tiene? ¿Dónde evacúa sus aguas residuales? ¿Hay coordenadas del punto de vertido?
+
+¿De dónde va a tomar la electricidad? ¿Tiene tendido eléctrico? ¿Tiene conexión eléctrica? ¿Cuál es el trazado de la línea eléctrica?
+
+
+H.	Generación de residuos
+
+¿Qué residuos se van a generar en las instalaciones?
+
+¿Qué códigos LER tienen los residuos que se van a generar en las instalaciones?
+
+¿Son residuos peligrosos? ¿Son residuos no peligrosos?
+
+
+I.	Afección sobre áreas protegidas
+
+¿Se sitúa dentro de áreas protegidas?
+
+¿Dentro de qué áreas protegidas se sitúa?
+
+¿A qué distancias de las áreas protegidas más cercanas se sitúa?
+
+¿Existe afección sobre Red Natura 2000, ZEPA O ZEC/LIC?
+
+¿Qué dice el documento sobre las afecciones sobre la Red Natura 2000?
+
+
+J.	Cambio Climático
+
+¿Tiene en cuenta el cambio climático la documentación?
+
+¿Qué dice en relación con el cambio climático?
+
+¿Hay medidas de adecuación al cambio climático?
+
+
+K.	Riesgo de accidentes graves o catástrofes
+
+¿Analiza la vulnerabilidad del proyecto ante el riesgo de accidentes graves o catástrofes?
+
+¿Qué incluye el documento sobre la vulnerabilidad del proyecto ante el riesgo de accidentes graves o catástrofes?
+
+
+L.	Medidas compensatorias
+
+¿Incluye el documento medidas compensatorias?
+
+¿Qué medidas compensatorias incluye el documento?
+
+¿Son medidas compensatorias de los efectos sobre la Red Natura 2000?
+
+
+M.	Compatibilidad urbanística
+
+¿Se cita en el documento la compatibilidad del proyecto con el planeamiento municipal?
+
+¿Hay compatibilidad urbanística del proyecto con la normativa municipal del suelo?
+
+¿Es un uso permitido en el suelo por la normativa urbanística?
+
+
+N.	Contaminación atmosférica
+
+¿El proyecto incluye algún foco de emisión de contaminación a la atmósfera? ¿Tiene focos canalizados de emisión a la atmósfera?
+
+¿Qué contaminantes de la atmósfera emite la actividad?
+
+¿Se trata de una actividad del catálogo de actividades potencialmente contaminadoras de la atmósfera?
+
+¿Presenta algún equipo de combustión?
+
+¿Qué potencia térmica tienen los equipos de combustión del proyecto?
+
+
+O.	Impactos
+
+¿Cuál es el principal impacto de la actuación?
+
+¿Hay algún impacto severo?
+
+¿Qué medidas se proponen para los impactos severos?
+
+¿Hay algún impacto crítico?
+
+¿Qué medidas se proponen para los impactos críticos?
