@@ -162,47 +162,45 @@ class PrepareEvidencePipeline(BaseComponent):
 
 
 DEFAULT_QA_TEXT_PROMPT = (
-    "Eres un experto en la ley 2/2020 de la Junta de Castilla La mancha en estudios medioambientales. Usa tus conocimientos de la ley 2/2020,  para responder la pregunta al final, "
-    "Usa los siguientes fragmentos de contexto para responder la pregunta al final en detalle con una explicación clara. "
-    "Si no sabes la respuesta, solo di que no la sabes, no intentes "
-    "inventar una respuesta. Da la respuesta en "
+    "Use the following pieces of context to answer the question at the end in detail with clear explanation. "  # noqa: E501
+    "If you don't know the answer, just say that you don't know, don't try to "
+    "make up an answer. Give answer in "
     "{lang}.\n\n"
     "{context}\n"
-    "Pregunta: {question}\n"
-    "Respuesta útil:"
+    "Question: {question}\n"
+    "Helpful Answer:"
 )
 
 DEFAULT_QA_TABLE_PROMPT = (
-    "Eres un experto en la ley 2/2020 de la Junta de Castilla La mancha en estudios medioambientales. Usa tus conocimientos de la ley 2/2020,  para responder la pregunta al final, "
-    "Usa el contexto dado: textos, tablas y figuras a continuación para responder la pregunta, "
-    "luego proporciona la respuesta con una explicación clara. "
-    "Si no sabes la respuesta, solo di que no la sabes, "
-    "no intentes inventar una respuesta. Da la respuesta en {lang}.\n\n"
-    "Contexto:\n"
+    "Use the given context: texts, tables, and figures below to answer the question, "
+    "then provide answer with clear explanation."
+    "If you don't know the answer, just say that you don't know, "
+    "don't try to make up an answer. Give answer in {lang}.\n\n"
+    "Context:\n"
     "{context}\n"
-    "Pregunta: {question}\n"
-    "Respuesta útil:"
+    "Question: {question}\n"
+    "Helpful Answer:"
 )  # noqa
 
 DEFAULT_QA_CHATBOT_PROMPT = (
-    "Eres un experto en la ley 2/2020 de la Junta de Castilla La mancha en estudios medioambientales. Usa tus conocimientos de la ley 2/2020,  para responder la pregunta al final, "
-    "y proporciona el texto de la respuesta. Si no sabes la respuesta, "
-    "solo di que no la sabes. Mantén la respuesta lo más concisa posible. "
-    "Da la respuesta en {lang}.\n\n"
-    "Contexto:\n"
+    "Pick the most suitable chatbot scenarios to answer the question at the end, "
+    "output the provided answer text. If you don't know the answer, "
+    "just say that you don't know. Keep the answer as concise as possible. "
+    "Give answer in {lang}.\n\n"
+    "Context:\n"
     "{context}\n"
-    "Pregunta: {question}\n"
-    "Respuesta:"
+    "Question: {question}\n"
+    "Answer:"
 )  # noqa
 
 DEFAULT_QA_FIGURE_PROMPT = (
-    "Usa el contexto dado: textos, tablas y figuras a continuación para responder la pregunta. "
-    "Si no sabes la respuesta, solo di que no la sabes. "
-    "Da la respuesta en {lang}.\n\n"
-    "Contexto: \n"
+    "Use the given context: texts, tables, and figures below to answer the question. "
+    "If you don't know the answer, just say that you don't know. "
+    "Give answer in {lang}.\n\n"
+    "Context: \n"
     "{context}\n"
-    "Pregunta: {question}\n"
-    "Respuesta: "
+    "Question: {question}\n"
+    "Answer: "
 )  # noqa
 
 CONTEXT_RELEVANT_WARNING_SCORE = 0.7
@@ -766,7 +764,7 @@ class FullQAPipeline(BaseReasoning):
             },
             "system_prompt": {
                 "name": "System Prompt",
-                "value": "Este es un sistema para realizar preguntas relacionadas con la ley 2/2020 de la Junta de Castilla La Mancha para estudios medioambientales.",
+                "value": "This is a question answering system",
             },
             "qa_prompt": {
                 "name": "QA Prompt (contains {context}, {question}, {lang})",

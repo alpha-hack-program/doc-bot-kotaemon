@@ -11,21 +11,58 @@ metadata:
     app.kubernetes.io/name: kotaemon
     app.kubernetes.io/part-of: chatbots
 data:
+  {{- if .Values.openaiApiKey }}
   APP_ENV: '{{ .Values.appEnv }}'
+  {{- end }}
+  {{- if .Values.openaiApiBase }}
   OPENAI_API_BASE: '{{ .Values.openaiApiBase }}'
+  {{- end }}
+  {{- if .Values.openaiChatModel }}
   OPENAI_CHAT_MODEL: '{{ .Values.openaiChatModel }}'
+  {{- end }}
+  {{- if .Values.openaiEmbeddingsModel }}
   OPENAI_EMBEDDINGS_MODEL: '{{ .Values.openaiEmbeddingsModel }}'
+  {{- end }}
+  {{- if .Values.azureOpenaiEndpoint }}
   AZURE_OPENAI_ENDPOINT: '{{ .Values.azureOpenaiEndpoint }}'
+  {{- end }}
+  {{- if .Values.openaiApiVersion }}
   OPENAI_API_VERSION: '{{ .Values.openaiApiVersion }}'
+  {{- end }}
+  {{- if .Values.azureOpenaiChatDeployment }}
   AZURE_OPENAI_CHAT_DEPLOYMENT: '{{ .Values.azureOpenaiChatDeployment }}'
+  {{- end }}
+  {{- if .Values.azureOpenaiEmbeddingsDeployment }}
   AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT: '{{ .Values.azureOpenaiEmbeddingsDeployment }}'
+  {{- end }}
+  {{- if .Values.localModel }}
   LOCAL_MODEL: '{{ .Values.localModel }}'
+  {{- end }}
+  {{- if .Values.localModelEmbeddings }}
   LOCAL_MODEL_EMBEDDINGS: '{{ .Values.localModelEmbeddings }}'
+  {{- end }}
+  {{- if .Values.graphragLlmModel }}
   GRAPHRAG_LLM_MODEL: '{{ .Values.graphragLlmModel }}'
+  {{- end }}
+  {{- if .Values.graphragEmbeddingModel }}
   GRAPHRAG_EMBEDDING_MODEL: '{{ .Values.graphragEmbeddingModel }}'
+  {{- end }}
+  {{- if .Values.graphragEndpoint }}
   AZURE_DI_ENDPOINT: '{{ .Values.azureDiEndpoint }}'
+  {{- end }}
+  {{- if .Values.azureDiCredential }}
   AZURE_DI_CREDENTIAL: '{{ .Values.azureDiCredential }}'
+  {{- end }}
+  {{- if .Values.pdfServicesClientId }}
   PDF_SERVICES_CLIENT_ID: '{{ .Values.pdfServicesClientId }}'
+  {{- end }}
+  {{- if .Values.milvusHost }}
   MILVUS_HOST: '{{ .Values.milvusHost }}'
+  {{- end }}
+  {{- if .Values.milvusPort }}
   MILVUS_PORT: '{{ .Values.milvusPort }}'
+  {{- end }}
+  {{- if .Values.milvusCollectionsFile }}
   MILVUS_COLLECTIONS_FILE: '{{ .Values.milvusCollectionsFile }}'
+  {{- end }}
+
