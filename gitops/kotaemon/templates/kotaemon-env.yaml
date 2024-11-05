@@ -9,106 +9,106 @@ metadata:
 stringData:
   .env: |
     {{- if .Values.openaiApiKey }}
-    APP_ENV: '{{ .Values.appEnv }}'
+    APP_ENV='{{ .Values.appEnv }}'
     {{- end }}
 
     {{- if .Values.openaiApiKey }}
-    OPENAI_API_KEY: '{{ .Values.openaiApiKey }}'
+    OPENAI_API_KEY='{{ .Values.openaiApiKey }}'
     {{- end }}
     {{- if .Values.openaiApiBase }}
-    OPENAI_API_BASE: '{{ .Values.openaiApiBase }}'
+    OPENAI_API_BASE='{{ .Values.openaiApiBase }}'
     {{- end }}
     {{- if .Values.openaiApiVersion }}
-    OPENAI_API_VERSION: '{{ .Values.openaiApiVersion }}'
+    OPENAI_API_VERSION='{{ .Values.openaiApiVersion }}'
     {{- end }}
     {{- if .Values.openaiChatModel }}
-    OPENAI_CHAT_MODEL: '{{ .Values.openaiChatModel }}'
+    OPENAI_CHAT_MODEL='{{ .Values.openaiChatModel }}'
     {{- end }}
     {{- if .Values.openaiEmbeddingsModel }}
-    OPENAI_EMBEDDINGS_MODEL: '{{ .Values.openaiEmbeddingsModel }}'
+    OPENAI_EMBEDDINGS_MODEL='{{ .Values.openaiEmbeddingsModel }}'
     {{- end }}
 
     {{- if .Values.azureOpenaiApiKey }}
-    AZURE_OPENAI_API_KEY: '{{ .Values.azureOpenaiApiKey }}'
+    AZURE_OPENAI_API_KEY='{{ .Values.azureOpenaiApiKey }}'
     {{- end }}
     {{- if .Values.azureOpenaiEndpoint }}
-    AZURE_OPENAI_ENDPOINT: '{{ .Values.azureOpenaiEndpoint }}'
+    AZURE_OPENAI_ENDPOINT='{{ .Values.azureOpenaiEndpoint }}'
     {{- end }}
     {{- if .Values.azureOpenaiChatDeployment }}
-    AZURE_OPENAI_CHAT_DEPLOYMENT: '{{ .Values.azureOpenaiChatDeployment }}'
+    AZURE_OPENAI_CHAT_DEPLOYMENT='{{ .Values.azureOpenaiChatDeployment }}'
     {{- end }}
     {{- if .Values.azureOpenaiEmbeddingsDeployment }}
-    AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT: '{{ .Values.azureOpenaiEmbeddingsDeployment }}'
+    AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT='{{ .Values.azureOpenaiEmbeddingsDeployment }}'
     {{- end }}
 
     {{- if .Values.cohereApiKey }}
-    COHERE_API_KEY: '{{ .Values.cohereApiKey }}'
+    COHERE_API_KEY='{{ .Values.cohereApiKey }}'
     {{- end }}
 
     {{- if .Values.graphragApiKey }}
-    GRAPHRAG_API_KEY: '{{ .Values.graphragApiKey }}'
+    GRAPHRAG_API_KEY='{{ .Values.graphragApiKey }}'
     {{- end }}
 
     {{- if .Values.pdfServicesClientId }}
-    PDF_SERVICES_CLIENT_SECRET: '{{ .Values.pdfServicesClientSecret }}'
+    PDF_SERVICES_CLIENT_SECRET='{{ .Values.pdfServicesClientSecret }}'
     {{- end }}
 
     {{- if .Values.milvusHost }}
-    MILVUS_HOST: '{{ .Values.milvusHost }}'
+    MILVUS_HOST='{{ .Values.milvusHost }}'
     {{- end }}
     {{- if .Values.milvusPort }}
-    MILVUS_PORT: '{{ .Values.milvusPort }}'
+    MILVUS_PORT='{{ .Values.milvusPort }}'
     {{- end }}
     {{- if .Values.milvusCollectionsFile }}
-    MILVUS_COLLECTIONS_FILE: '{{ .Values.milvusCollectionsFile }}'
+    MILVUS_COLLECTIONS_FILE='{{ .Values.milvusCollectionsFile }}'
     {{- end }}
     {{- if .Values.milvusToken }}
-    MILVUS_TOKEN: '{{ .Values.milvusToken }}'
+    MILVUS_TOKEN='{{ .Values.milvusToken }}'
     {{- end }}
     {{- if .Values.milvusPassword }}
-    MILVUS_PASSWORD: '{{ .Values.milvusPassword }}'
+    MILVUS_PASSWORD='{{ .Values.milvusPassword }}'
     {{- end }}
 
     {{- if .Values.oracleUsername }}
-    ORACLE_USERNAME: '{{ .Values.oracleUsername }}'
+    ORACLE_USERNAME='{{ .Values.oracleUsername }}'
     {{- end }}
     {{- if .Values.oraclePassword }}
-    ORACLE_PASSWORD: '{{ .Values.oraclePassword }}'
+    ORACLE_PASSWORD='{{ .Values.oraclePassword }}'
     {{- end }}
     {{- if .Values.oracleDsn }}
-    ORACLE_DSN: '{{ .Values.oracleDsn }}'
+    ORACLE_DSN='{{ .Values.oracleDsn }}'
     {{- end }}
     {{- if .Values.oracleTableName }}
-    ORACLE_TABLE_NAME: '{{ .Values.oracleTableName }}'
+    ORACLE_TABLE_NAME='{{ .Values.oracleTableName }}'
     {{- end }}
     {{- if .Values.oracleDistanceStrategy }}
-    ORACLE_DISTANCE_STRATEGY: '{{ .Values.oracleDistanceStrategy }}'
+    ORACLE_DISTANCE_STRATEGY='{{ .Values.oracleDistanceStrategy }}'
     {{- end }}
     
     
     {{- if .Values.localModel }}
-    LOCAL_MODEL: '{{ .Values.localModel }}'
+    LOCAL_MODEL='{{ .Values.localModel }}'
     {{- end }}
     {{- if .Values.localModelEmbeddings }}
-    LOCAL_MODEL_EMBEDDINGS: '{{ .Values.localModelEmbeddings }}'
+    LOCAL_MODEL_EMBEDDINGS='{{ .Values.localModelEmbeddings }}'
     {{- end }}
     
     {{- if .Values.graphragLlmModel }}
-    GRAPHRAG_LLM_MODEL: '{{ .Values.graphragLlmModel }}'
+    GRAPHRAG_LLM_MODEL='{{ .Values.graphragLlmModel }}'
     {{- end }}
     {{- if .Values.graphragEmbeddingModel }}
-    GRAPHRAG_EMBEDDING_MODEL: '{{ .Values.graphragEmbeddingModel }}'
+    GRAPHRAG_EMBEDDING_MODEL='{{ .Values.graphragEmbeddingModel }}'
     {{- end }}
     
     {{- if .Values.graphragEndpoint }}
-    AZURE_DI_ENDPOINT: '{{ .Values.azureDiEndpoint }}'
+    AZURE_DI_ENDPOINT='{{ .Values.azureDiEndpoint }}'
     {{- end }}
     {{- if .Values.azureDiCredential }}
-    AZURE_DI_CREDENTIAL: '{{ .Values.azureDiCredential }}'
+    AZURE_DI_CREDENTIAL='{{ .Values.azureDiCredential }}'
     {{- end }}
 
     {{- if .Values.pdfServicesClientId }}
-    PDF_SERVICES_CLIENT_ID: '{{ .Values.pdfServicesClientId }}'
+    PDF_SERVICES_CLIENT_ID='{{ .Values.pdfServicesClientId }}'
     {{- end }}
 type: Opaque
 
