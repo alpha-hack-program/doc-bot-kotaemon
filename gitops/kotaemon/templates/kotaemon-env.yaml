@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: kotaemon-env
   namespace: {{ .Values.dataScienceProjectNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 stringData:
   .env: |
     {{- if .Values.openaiApiKey }}

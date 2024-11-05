@@ -5,7 +5,7 @@ metadata:
   annotations:
     app.openshift.io/vcs-uri: '{{ .Values.vcs.uri }}'
     app.openshift.io/vcs-ref: '{{ .Values.vcs.ref }}'
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
   name: kotaemon
   namespace: '{{ .Values.dataScienceProjectNamespace }}'
   labels:

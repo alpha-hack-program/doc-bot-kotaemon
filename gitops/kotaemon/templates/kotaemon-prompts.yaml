@@ -4,6 +4,8 @@ apiVersion: v1
 metadata:
   name: kotaemon-prompts
   namespace: {{ .Values.dataScienceProjectNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 data:
   DEFAULT_QA_TEXT_PROMPT: |
     "Use the following pieces of context to answer the question at the end in detail with clear explanation. "
