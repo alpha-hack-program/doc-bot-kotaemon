@@ -49,7 +49,9 @@ spec:
           volumeMounts:
             - name: kotaemon-env-volume
               mountPath: /app/.env
-              subPath: .env  # Mount secret at specific file path
+              subPath: .env
+            - name: kotaemon-data-volume
+              mountPath: {{ .Values.kotaemonPvcMountPath }}
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
@@ -64,8 +66,11 @@ spec:
           secret:
             secretName: kotaemon-env
             items:
-              - key: .env  # Key in the secret
-                path: .env  # File name within the container      
+              - key: .env
+                path: .env
+        - name: kotaemon-data-volume
+          persistentVolumeClaim:
+            claimName: kotaemon-pvc
   strategy:
     type: RollingUpdate
     rollingUpdate:

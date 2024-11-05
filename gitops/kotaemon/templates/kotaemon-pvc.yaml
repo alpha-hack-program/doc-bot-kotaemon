@@ -1,0 +1,22 @@
+# This file defines the PersistentVolumeClaim for the kotaemon application which should be mounted on /app/ktem_app_data
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: kotaemon-pvc
+  namespace: '{{ .Values.dataScienceProjectNamespace }}'
+  labels:
+    app: kotaemon
+    app.kubernetes.io/component: kotaemon
+    app.kubernetes.io/instance: kotaemon
+    app.kubernetes.io/name: kotaemon
+    app.kubernetes.io/part-of: chatbots
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: '{{ .Values.kotaemonPvcSize }}'
+    {{- if .Values.kotaemonPvcStorageClass }}
+    storageClassName: '{{ .Values.kotaemonPvcStorageClass }}'
+    {{- end }}
+    volumeMode: Filesystem

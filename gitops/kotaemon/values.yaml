@@ -8,6 +8,10 @@ createNamespace: true
 
 pythonVersion: 3.9-ubi8
 
+kotaemonPvcSize: 2Gi
+# kotaemonPvcStorageClass: ''
+kotaemonPvcMountPath: /app/ktem_app_data
+
 # gitPatSecret: git-pat-bc-secret
 
 gitSslVerify: true
