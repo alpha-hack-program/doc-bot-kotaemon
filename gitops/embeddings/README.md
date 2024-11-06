@@ -33,7 +33,7 @@ spec:
       parameters:
         - name: createNamespace # This has to be false if deploying in the an existing namespace
           value: 'true'
-        - name: createSecret # This has to be false if the secret already exists
+        - name: modelConnection.createSecret # This has to be false if the secret `embeddings` already exists
           value: 'true'
         - name: dataScienceProjectNamespace
           value: "embeddings" # DATA_SCIENCE_PROJECT_NAMESPACE used later
@@ -128,7 +128,7 @@ spec:
       parameters:
         - name: createNamespace # This has to be false if deploying in the an existing namespace
           value: 'false'
-        - name: createSecret # This has to be false if the secret already exists
+        - name: modelConnection.createSecret # This has to be false if the secret `embeddings` already exists
           value: 'false'
         - name: dataScienceProjectNamespace
           value: "embeddings" # DATA_SCIENCE_PROJECT_NAMESPACE used later
