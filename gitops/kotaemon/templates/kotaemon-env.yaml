@@ -32,7 +32,7 @@ stringData:
     LOCAL_OPENAI_API_KEY='{{ .Values.localOpenaiApiKey }}'
     {{- end }}
     {{- if .Values.localOpenaiApiBase }}
-    LCAL_OPENAI_API_BASE='{{ .Values.localOpenaiApiBase }}'
+    LOCAL_OPENAI_API_BASE='{{ .Values.localOpenaiApiBase }}'
     {{- end }}
     {{- if .Values.localOpenaiApiVersion }}
     LOCAL_OPENAI_API_VERSION='{{ .Values.localOpenaiApiVersion }}'
