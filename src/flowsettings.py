@@ -164,7 +164,7 @@ if config("LOCAL_OPENAI_API_BASE", default=""):
             "temperature": 0,
             "base_url": config("LOCAL_OPENAI_API_BASE", default="")
             or "https://<FILL_ME>/v1",
-            "api_key": config("LOCAL_OPENAI_API_KEY", default=""),
+            "api_key": config("LOCAL_OPENAI_API_KEY", default="EMPTY"),
             "model": config("LOCAL_OPENAI_CHAT_MODEL", default="/mnt/models/"),
             "timeout": 20,
         },
@@ -174,12 +174,10 @@ if config("LOCAL_OPENAI_API_BASE", default=""):
         "spec": {
             "__type__": "kotaemon.embeddings.OpenAIEmbeddings",
             "base_url": config("LOCAL_OPENAI_EMBEDDINGS_API_BASE", default="https://<FILL_ME>/v1"),
-            "api_key": config("LOCAL_OPENAI_EMBEDDINGS_API_KEY", default=""),
+            "api_key": config("LOCAL_OPENAI_EMBEDDINGS_API_KEY", default="EMPTY"),
             "model": config(
                 "LOCAL_OPENAI_EMBEDDINGS_MODEL", default="nomic-embed-text-v1"
             ),
-            "timeout": 10,
-            "context_length": 8191,
         },
         "default": True,
     }
