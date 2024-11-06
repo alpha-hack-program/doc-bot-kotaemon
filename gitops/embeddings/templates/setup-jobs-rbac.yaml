@@ -19,7 +19,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  name: embeddings-embeddings-setup-job
+  name: embeddings-setup-job
   namespace: {{ .Values.dataScienceProjectNamespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
