@@ -77,9 +77,9 @@ spec:
             - name: models-volume
               mountPath: /mnt/models
       restartPolicy: Never
-      serviceAccount: embeddings-setup-job
-      serviceAccountName: embeddings-setup-job
+      serviceAccount: {{ .Values.model.name }}-setup-job
+      serviceAccountName: {{ .Values.model.name }}-setup-job
       volumes:
         - name: models-volume
           persistentVolumeClaim:
-            claimName: models-pvc
+            claimName: {{ .Values.model.name }}-models-pvc

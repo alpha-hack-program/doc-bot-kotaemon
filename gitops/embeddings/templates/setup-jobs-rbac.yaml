@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  name: embeddings-route-reader
+  name: {{ .Values.model.name }}-route-reader
   namespace: {{ .Values.dataScienceProjectNamespace }}
 rules:
 - apiGroups: ["route.openshift.io"]
@@ -19,7 +19,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  name: embeddings-setup-job
+  name: {{ .Values.model.name }}-setup-job
   namespace: {{ .Values.dataScienceProjectNamespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -28,7 +28,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  name: embeddings-setup-job-edit
+  name: {{ .Values.model.name }}-setup-job-edit
   namespace: {{ .Values.dataScienceProjectNamespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -36,7 +36,7 @@ roleRef:
   name: edit
 subjects:
 - kind: ServiceAccount
-  name: embeddings-setup-job
+  name: {{ .Values.model.name }}-setup-job
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -44,13 +44,13 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-  name: embeddings-setup-job-embeddings-route-reader-binding
+  name: {{ .Values.model.name }}-route-reader-binding
   namespace: {{ .Values.dataScienceProjectNamespace }}
 subjects:
 - kind: ServiceAccount
-  name: embeddings-setup-job
+  name: {{ .Values.model.name }}-setup-job
   namespace: {{ .Values.dataScienceProjectNamespace }}
 roleRef:
   kind: Role
-  name: embeddings-route-reader
+  name: {{ .Values.model.name }}-route-reader
   apiGroup: rbac.authorization.k8s.io
