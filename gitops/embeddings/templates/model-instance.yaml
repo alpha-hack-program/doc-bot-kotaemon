@@ -22,13 +22,15 @@ spec:
       name: ''
       resources:
         limits:
-          {{- if .Values.model.accelerator.max }}
+          # If model has accelerator and max is set, use min value
+          {{- if and .Values.model.accelerator .Values.model.accelerator.max }}
           nvidia.com/gpu: '{{ .Values.model.accelerator.max }}'
           {{- end }}
           cpu: '{{ .Values.model.runtime.resources.limits.cpu }}'
           memory: '{{ .Values.model.runtime.resources.limits.memory }}'
         requests:
-          {{- if .Values.model.accelerator.min }}
+          # If model has accelerator and min is set, use min value
+          {{- if and .Values.model.accelerator .Values.model.accelerator.min }}
           nvidia.com/gpu: '{{ .Values.model.accelerator.min }}'
           {{- end }}
           cpu: '{{ .Values.model.runtime.resources.requests.cpu }}'
