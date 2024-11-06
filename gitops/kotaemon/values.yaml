@@ -34,10 +34,10 @@ milvusPassword: 'Milvus'
 # oracleTableName: 'ABCDEFGHIJKL'
 # oracleDistanceStrategy: 'euclidean'
 
-openaiApiBase: https://mistral-7b-predictor-doc-bot.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
+openaiApiBase: https://mistral-7b-predictor-doc-bot.apps.example.com/v1
 openaiChatModel: /mnt/models/
 # openaiEmbeddingsModel: text-embedding-ada-002
-localOpenaiEmbeddingsApiBase: https://nomic-embed-text-v1-gpu-embeddings.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
+localOpenaiEmbeddingsApiBase: https://nomic-embed-text-v1-gpu-embeddings.apps.example.com/v1
 localOpenaiEmbeddingsModel: nomic-embed-text-v1-gpu
 # azureOpenaiEndpoint: ''
 # openaiApiVersion: 2024-02-15-preview

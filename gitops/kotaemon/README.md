@@ -1,3 +1,4 @@
+# Deployment of Kotaemon
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -25,6 +26,14 @@ spec:
           value: doc-bot
         - name: dataScienceProjectNamespace
           value: doc-bot
+        - name: openaiApiBase
+          value: https://mistral-7b-predictor-doc-bot.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
+        - name: openaiChatModel
+          value: /mnt/models/
+        - name: localOpenaiEmbeddingsApiBase
+          value: https://nomic-embed-text-v1-gpu-embeddings.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
+        - name: localOpenaiEmbeddingsModel
+          value: nomic-embed-text-v1-gpu
     path: gitops/kotaemon
     repoURL: 'https://github.com/alpha-hack-program/doc-bot-kotaemon.git'
     targetRevision: main
