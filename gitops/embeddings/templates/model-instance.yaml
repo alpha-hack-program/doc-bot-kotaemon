@@ -39,7 +39,7 @@ spec:
       storage:
         key: aws-connection-{{ .Values.model.connection.name }}
         path: "{{ printf "%s/%s" .Values.model.root .Values.model.id }}"
-    {{- if .Values.model.accelerator.min }}
+    {{- if .Values.model.accelerator }}
     tolerations:
       - effect: NoSchedule
         key: nvidia.com/gpu
@@ -71,7 +71,7 @@ spec:
     - args:
         - '--model_path=/mnt/models'
         - '--trust_remote_code=True'
-      {{- if .Values.model.accelerator.min }}
+      {{- if .Values.model.accelerator }}
       image: '{{ .Values.runtime.gpuImage }}'
       {{- else  }}
       image: '{{ .Values.runtime.cpuImage }}'
