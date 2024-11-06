@@ -26,9 +26,9 @@ spec:
           value: doc-bot
         - name: dataScienceProjectNamespace
           value: doc-bot
-        - name: openaiApiBase
+        - name: localOpenaiApiBase
           value: https://mistral-7b-predictor-doc-bot.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
-        - name: openaiChatModel
+        - name: localOpenaiChatModel
           value: /mnt/models/
         - name: localOpenaiEmbeddingsApiBase
           value: https://nomic-embed-text-v1-gpu-embeddings.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1

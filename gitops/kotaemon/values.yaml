@@ -20,8 +20,8 @@ githubWebhookSecretKey: 'ABCDEFGHIJKL'
 dataScienceProjectDisplayName: kotaemon
 dataScienceProjectNamespace: kotaemon
 
-openaiApiKey: ''
-localOpenaiApiKey: ''
+openaiApiKey: EMPTY
+localOpenaiApiKey: EMPTY
 # azureOpenaiApiKey: 'ABCDEFGHI'
 # cohereApiKey: 'ABCDEFGHI'
 # graphragApiKey: 'ABCDEFGHI'
