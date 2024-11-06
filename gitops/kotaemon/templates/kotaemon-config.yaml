@@ -16,6 +16,7 @@ data:
   {{- if .Values.openaiApiKey }}
   APP_ENV: '{{ .Values.appEnv }}'
   {{- end }}
+
   {{- if .Values.openaiApiBase }}
   OPENAI_API_BASE: '{{ .Values.openaiApiBase }}'
   {{- end }}
@@ -25,6 +26,14 @@ data:
   {{- if .Values.openaiEmbeddingsModel }}
   OPENAI_EMBEDDINGS_MODEL: '{{ .Values.openaiEmbeddingsModel }}'
   {{- end }}
+
+  {{- if .Values.localOpenaiEmbeddingsApiBase }}
+  LOCAL_OPENAI_EMBEDDINGS_API_BASE: '{{ .Values.localOpenaiEmbeddingsApiBase }}'
+  {{- end }}
+  {{- if .Values.localOpenaiEmbeddingsModel }}
+  LOCAL_OPENAI_EMBEDDINGS_MODEL: '{{ .Values.localOpenaiEmbeddingsModel }}'
+  {{- end }}
+
   {{- if .Values.azureOpenaiEndpoint }}
   AZURE_OPENAI_ENDPOINT: '{{ .Values.azureOpenaiEndpoint }}'
   {{- end }}

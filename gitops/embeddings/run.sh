@@ -17,4 +17,7 @@ helm template . --name-template ${ARGOCD_APP_NAME} \
   --set model.id=nomic-embed-text \
   --set model.name=nomic-embed \
   --set model.displayName="Nomic AI Tesxt" \
+  --set model.accelerator.productName="NVIDIA-A10G" \
+  --set model.accelerator.min=1 \
+  --set model.accelerator.max=1 \
   --include-crds

@@ -28,6 +28,29 @@ stringData:
     OPENAI_EMBEDDINGS_MODEL='{{ .Values.openaiEmbeddingsModel }}'
     {{- end }}
 
+    {{- if .Values.localOpenaiApiKey }}
+    LOCAL_OPENAI_API_KEY='{{ .Values.localOpenaiApiKey }}'
+    {{- end }}
+    {{- if .Values.localOpenaiApiBase }}
+    LCAL_OPENAI_API_BASE='{{ .Values.localOpenaiApiBase }}'
+    {{- end }}
+    {{- if .Values.localOpenaiApiVersion }}
+    LOCAL_OPENAI_API_VERSION='{{ .Values.localOpenaiApiVersion }}'
+    {{- end }}
+    {{- if .Values.localOpenaiChatModel }}
+    LOCAL_OPENAI_CHAT_MODEL='{{ .Values.localOpenaiChatModel }}'
+    {{- end }}
+
+    {{- if .Values.localOpenaiEmbeddingsApiBase }}
+    LOCAL_OPENAI_EMBEDDINGS_API_BASE='{{ .Values.localOpenaiEmbeddingsApiBase }}'
+    {{- end }}
+    {{- if .Values.localOpenaiEmbeddingsApiKey }}
+    LOCAL_OPENAI_EMBEDDINGS_API_KEY='{{ .Values.localOpenaiEmbeddingsApiKey }}'
+    {{- end }}
+    {{- if .Values.localOpenaiEmbeddingsModel }}
+    LOCAL_OPENAI_EMBEDDINGS_MODEL='{{ .Values.localOpenaiEmbeddingsModel }}'
+    {{- end }}
+
     {{- if .Values.azureOpenaiApiKey }}
     AZURE_OPENAI_API_KEY='{{ .Values.azureOpenaiApiKey }}'
     {{- end }}

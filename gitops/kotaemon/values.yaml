@@ -14,10 +14,6 @@ kotaemonPvcMountPath: /app/ktem_app_data
 
 # gitPatSecret: git-pat-bc-secret
 
-gitSslVerify: true
-modelDeploymentUploadTektonPipelineName: fraud-detection-kfp-upload
-sourceWorkspaceSize: 2Gi
-
 genericWebhookSecretKey: 'ABCDEFGHIJKL'
 githubWebhookSecretKey: 'ABCDEFGHIJKL'
 
@@ -25,6 +21,7 @@ dataScienceProjectDisplayName: kotaemon
 dataScienceProjectNamespace: kotaemon
 
 openaiApiKey: ''
+localOpenaiApiKey: ''
 # azureOpenaiApiKey: 'ABCDEFGHI'
 # cohereApiKey: 'ABCDEFGHI'
 # graphragApiKey: 'ABCDEFGHI'
@@ -40,12 +37,14 @@ milvusPassword: 'Milvus'
 openaiApiBase: https://mistral-7b-predictor-doc-bot.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
 openaiChatModel: /mnt/models/
 # openaiEmbeddingsModel: text-embedding-ada-002
+localOpenaiEmbeddingsApiBase: https://nomic-embed-text-v1-gpu-embeddings.apps.cluster-8q7tj.8q7tj.sandbox277.opentlc.com/v1
+localOpenaiEmbeddingsModel: nomic-embed-text-v1-gpu
 # azureOpenaiEndpoint: ''
 # openaiApiVersion: 2024-02-15-preview
 # azureOpenaiChatDeployment: gpt-35-turbo
 # azureOpenaiEmbeddingsDeployment: text-embedding-ada-002
 # localModel: llama3.1:8b
-localModelEmbeddings: nomic-embed-text
+# localModelEmbeddings: nomic-embed-text
 # graphragLlmModel: gpt-4o-mini
 # graphragEmbeddingModel: text-embedding-3-small
 # azureDiEndpoint: ''
