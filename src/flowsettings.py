@@ -178,6 +178,7 @@ if config("LOCAL_OPENAI_API_BASE", default=""):
             "model": config(
                 "LOCAL_OPENAI_EMBEDDINGS_MODEL", default="nomic-embed-text-v1"
             ),
+            "timeout": 10,
         },
         "default": True,
     }
