@@ -157,6 +157,7 @@ if config("OPENAI_API_KEY", default=""):
         "default": True,
     }
 
+# doc-bot local openai model and embeddings
 if config("LOCAL_OPENAI_API_BASE", default=""):
     KH_LLMS["local-openai"] = {
         "spec": {

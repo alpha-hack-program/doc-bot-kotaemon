@@ -35,7 +35,7 @@ spec:
     git:
       uri: '{{ .Values.vcs.uri }}'
       ref: '{{ .Values.vcs.ref }}'
-    contextDir: src
+    contextDir: '{{ .Values.vcs.dir }}'
     # If gitPatSecret is defined, use it as the source secret
     {{- if .Values.gitPatSecret }}
     sourceSecret:

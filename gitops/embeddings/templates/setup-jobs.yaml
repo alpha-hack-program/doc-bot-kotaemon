@@ -41,11 +41,11 @@ spec:
 
               # Set up AWS CLI
               AWS_CONFIG_FILE=/scratch/aws-config
-              AWS_S3_BUCKET={{ .Values.modelConnection.awsS3Bucket }}
-              AWS_ACCESS_KEY_ID={{ .Values.modelConnection.awsAccessKeyId }}
-              AWS_SECRET_ACCESS_KEY={{ .Values.modelConnection.awsSecretAccessKey }}
-              AWS_DEFAULT_REGION={{ .Values.modelConnection.awsDefaultRegion }}
-              AWS_S3_ENDPOINT={{ .Values.modelConnection.awsS3Endpoint }}
+              AWS_S3_BUCKET={{ .Values.model.connection.awsS3Bucket }}
+              AWS_ACCESS_KEY_ID={{ .Values.model.connection.awsAccessKeyId }}
+              AWS_SECRET_ACCESS_KEY={{ .Values.model.connection.awsSecretAccessKey }}
+              AWS_DEFAULT_REGION={{ .Values.model.connection.awsDefaultRegion }}
+              AWS_S3_ENDPOINT={{ .Values.model.connection.awsS3Endpoint }}
               AWS_S3_CUSTOM_DOMAIN=${AWS_S3_ENDPOINT}
               AWS_S3_USE_PATH_STYLE=1
 
@@ -58,16 +58,16 @@ spec:
 
               # Check if the bucket exists and create it if it doesn't
               echo ">>>>>> Checking if S3 bucket exists..."
-              if aws s3api head-bucket --bucket ${AWS_S3_BUCKET} --endpoint-url "{{ .Values.modelConnection.scheme }}://${AWS_S3_ENDPOINT}" 2>&1 | grep -q "Not Found"; then
+              if aws s3api head-bucket --bucket ${AWS_S3_BUCKET} --endpoint-url "{{ .Values.model.connection.scheme }}://${AWS_S3_ENDPOINT}" 2>&1 | grep -q "Not Found"; then
                   echo "Bucket ${AWS_S3_BUCKET} does not exist. Creating..."
-                  aws s3api create-bucket --bucket ${AWS_S3_BUCKET} --endpoint-url "{{ .Values.modelConnection.scheme }}://${AWS_S3_ENDPOINT}"
+                  aws s3api create-bucket --bucket ${AWS_S3_BUCKET} --endpoint-url "{{ .Values.model.connection.scheme }}://${AWS_S3_ENDPOINT}"
               else
                   echo "Bucket ${AWS_S3_BUCKET} already exists. Continuing..."
               fi
 
               # Upload the model to the bucket excluding safetensor files
               echo ">>>>>> Uploading model to AWS_S3_BUCKET ${AWS_S3_BUCKET}"
-              aws s3 sync ${MODELS_MOUNT_PATH}/${MODEL_ROOT}/${MODEL_ID} s3://${AWS_S3_BUCKET}/${MODEL_ROOT}/${MODEL_ID}/ --exclude ".git/*" --exclude ".git" --endpoint-url "{{ .Values.modelConnection.scheme }}://${AWS_S3_ENDPOINT}" 
+              aws s3 sync ${MODELS_MOUNT_PATH}/${MODEL_ROOT}/${MODEL_ID} s3://${AWS_S3_BUCKET}/${MODEL_ROOT}/${MODEL_ID}/ --exclude ".git/*" --exclude ".git" --endpoint-url "{{ .Values.model.connection.scheme }}://${AWS_S3_ENDPOINT}" 
           command:
             - /bin/bash
           image: {{ .Values.setup.image }}

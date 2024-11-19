@@ -5,6 +5,7 @@ from kotaemon.base import DocumentWithEmbedding
 
 from .base import LlamaIndexVectorStore
 
+from decouple import config
 
 class MilvusVectorStore(LlamaIndexVectorStore):
     _li_class = None
