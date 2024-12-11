@@ -6,13 +6,15 @@ from pathlib import Path
 from decouple import config
 from theflow.settings.default import *  # noqa
 
-from kubernetes import client, config
+print("Hoooola")
+
+from kubernetes import client, config as k8s_config
 
 # Load in-cluster Kubernetes configuration but if it fails, load local configuration
 try:
-    config.load_incluster_config()
+    k8s_config.load_incluster_config()
 except config.config_exception.ConfigException:
-    config.load_kube_config()
+    k8s_config.load_kube_config()
 
 # Get prediction URL by name and namespace
 def get_predictor_url(namespace, predictor_name):

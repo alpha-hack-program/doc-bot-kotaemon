@@ -23,6 +23,9 @@ data:
   {{- if .Values.openaiChatModel }}
   OPENAI_CHAT_MODEL: '{{ .Values.openaiChatModel }}'
   {{- end }}
+  {{- if .Values.localOpenaiApiChatPredictorName }}
+  LOCAL_OPENAI_CHAT_PREDICTOR_NAME: '{{ .Values.localOpenaiApiChatPredictorName }}'
+  {{- end }}
   {{- if .Values.openaiEmbeddingsModel }}
   OPENAI_EMBEDDINGS_MODEL: '{{ .Values.openaiEmbeddingsModel }}'
   {{- end }}
@@ -32,6 +35,9 @@ data:
   {{- end }}
   {{- if .Values.localOpenaiEmbeddingsModel }}
   LOCAL_OPENAI_EMBEDDINGS_MODEL: '{{ .Values.localOpenaiEmbeddingsModel }}'
+  {{- end }}
+  {{- if .Values.localOpenaiApiEmbeddingsPredictorName }}
+  LOCAL_OPENAI_EMBEDDINGS_PREDICTOR_NAME: '{{ .Values.localOpenaiApiEmbeddingsPredictorName }}'
   {{- end }}
 
   {{- if .Values.azureOpenaiEndpoint }}
