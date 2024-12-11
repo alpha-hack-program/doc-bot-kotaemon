@@ -48,7 +48,8 @@ RUN --mount=type=ssh  \
     pip install -e "libs/kotaemon" \
     && pip install -e "libs/ktem" \
     && pip install graphrag future \
-    && pip install "pdfservices-sdk@git+https://github.com/niallcm/pdfservices-python-sdk.git@bump-and-unfreeze-requirements"
+    && pip install "pdfservices-sdk@git+https://github.com/niallcm/pdfservices-python-sdk.git@bump-and-unfreeze-requirements" \
+    && pip install kubernetes
 
 # Clean up
 RUN apt-get autoremove \
@@ -97,7 +98,8 @@ ENV XDG_CACHE_HOME=/app/fontconfig
 RUN --mount=type=ssh  \
     --mount=type=cache,target=/root/.cache/pip  \
     pip install -e "libs/kotaemon[adv]" \
-    && pip install unstructured[all-docs]
+    && pip install unstructured[all-docs] \
+    && pip install kubernetes
 
 # Clean up
 RUN apt-get autoremove \

@@ -115,12 +115,16 @@ spec:
           value: "${DATA_SCIENCE_PROJECT_NAMESPACE}"
         - name: dataScienceProjectNamespace
           value: "${DATA_SCIENCE_PROJECT_NAMESPACE}"
-        - name: localOpenaiApiBase
-          value: ${LOCAL_OPENAI_API_BASE}/v1
+        # - name: localOpenaiApiBase
+        #   value: ${LOCAL_OPENAI_API_BASE}/v1
+        - name: localOpenaiApiChatPredictorName
+          value: mistral-7b
         - name: localOpenaiChatModel
           value: /mnt/models/
-        - name: localOpenaiEmbeddingsApiBase
-          value: "${LOCAL_OPENAI_EMBEDDINGS_API_BASE}/v1"
+        # - name: localOpenaiEmbeddingsApiBase
+        #   value: "${LOCAL_OPENAI_EMBEDDINGS_API_BASE}/v1"
+        - name: localOpenaiApiEmbeddingsPredictorName
+          value: nomic-embed-text-v1
         - name: localOpenaiEmbeddingsModel
           value: "${EMBEDDINGS_MODEL_NAME}"
   syncPolicy:
